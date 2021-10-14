@@ -1,0 +1,13 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: gateway
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://netflix:eureka@localhost:8761/eureka
