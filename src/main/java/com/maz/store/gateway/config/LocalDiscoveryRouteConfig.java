@@ -14,8 +14,9 @@ public class LocalDiscoveryRouteConfig {
                 builder.routes()
 
                         //todo add routes for product service, order service and inventory service
-
-                        //todo add fallbacks after services creation
+                        .route(r -> r.path("product_route", "/api/v1/products/**").uri("lb://product-service"))
+                        .route(r -> r.path("inventory_route", "/api/v1/inventory/**").uri("lb://inventory-service"))
+                        .route(r -> r.path("order_route", "/api/v1/orders/**").uri("lb://order-service"))
 
                         .build();
     }
